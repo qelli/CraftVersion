@@ -1,0 +1,14 @@
+name: CraftVersion
+version: '1.0-SNAPSHOT'
+main: dev.qelli.minecraft.craftversion.CraftVersion
+api-version: '1.13'
+# softdepend: [ TAB, PlaceholderAPI ]
+# depend: [ ProtocolLib ]
+authors: [ blithe_kitsune ]
+website: https://qelli.dev
+commands:
+  craftversion:
+    description: CraftVersion suite
+    usage: /craftversion <reload|version>
+    permission: craftversion.admin
+    aliases: [ cv ]
