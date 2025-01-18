@@ -17,7 +17,7 @@ public class GitConfig {
         this.branch = plugin.getConfig().getString("git.branch");
     }
 
-    public String getExecutablePath() {
+    public String getPath() {
         return path;
     }
 

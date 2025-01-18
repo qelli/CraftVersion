@@ -2,11 +2,13 @@ package dev.qelli.minecraft.craftversion;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.qelli.minecraft.craftversion.git.managers.GitManager;
+import dev.qelli.minecraft.craftversion.commands.CraftVersionCommands;
+import dev.qelli.minecraft.craftversion.managers.FilesManager;
 
 public final class CraftVersion extends JavaPlugin {
 
-    GitManager gitManager;
+    FilesManager filesManager;
+    CraftVersionCommands commands;
 
     @Override
     public void onEnable() {
@@ -16,13 +18,33 @@ public final class CraftVersion extends JavaPlugin {
             saveDefaultConfig();
         }
 
-        this.gitManager = new GitManager(this);
-        this.gitManager.init();
+        this.filesManager = new FilesManager(this);
 
-        getLogger().info("CraftVersion enabled! Using GIT: " + this.gitManager.getVersion());
+        if (!this.filesManager.isReady()) {
+            getLogger().severe("Something went wrong while initializing the plugin.");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
+        // Once GIT is successfully working, initialize commands
+        this.commands = new CraftVersionCommands(this);
+
+        // Check for clean working dir
+
+        // Fetch remote
+
+        // Check for changes
+
+        // Suggest pull
+        
+
     }
 
     @Override
     public void onDisable() {}
+
+    public FilesManager getFilesManager() {
+        return this.filesManager;
+    }
 
 }
