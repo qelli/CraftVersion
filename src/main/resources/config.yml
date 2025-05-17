@@ -1,12 +1,14 @@
 debug: false
-# Will do `git init` if there's no repository at /plugins/
-create-repo-if-not-exists: false
-# When enabled, the plugin will automatically pull the repository on startup
-pull-on-startup: false
+
+# Everything related to GIT configurations
 git:
   # This path should point to the binary file of git, you should set it according to your OS
-  path: /path/to/bin/git
-  # As of now the plugin only supports HTTPS authentication and you MUST provide the credentials in the URL or else the initialization will crash
-  repo: https://<user>:<pass>@<host>/<repo>.git
-  # You can specify the source of your changes, you can use different branches for testing purposes
-  branch: master
+  exec-path: /path/to/bin/git
+  # Every command will be executed here
+  working-dir: /path/to/local/repo
+  # When enabled, the plugin will automatically pull the repository on startup
+  pull-on-startup: false
+  # Sync local and remote repos on startup
+  fetch-on-startup: false
+  # This can be a branch, commit hash or tag depending on your needs
+  source: master

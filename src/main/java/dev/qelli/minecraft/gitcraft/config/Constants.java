@@ -1,14 +1,11 @@
-package dev.qelli.minecraft.craftversion.config;
+package dev.qelli.minecraft.gitcraft.config;
 
-import java.util.Arrays;
-import java.util.List;
-
-public class CraftVersionConfig {
+public class Constants {
     
     public static final class Commands {
-        public static final class CraftVersion {
-            public static final String Main = "craftversion";
-            public static final String Permission = "craftversion.admin";
+        public static final class GitCraft {
+            public static final String Main = "gitcraft";
+            public static final String Permission = "gitcraft.admin";
             public static final String ConsoleAlias = "git";
             public static final class SubCommands {
                 public static final String Fetch = "fetch";
